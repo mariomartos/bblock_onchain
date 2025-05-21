@@ -76,3 +76,6 @@ def app_get_token_swaps():
         return jsonify({"error": "Consulta cancelada por el usuario"}), 500
     except Exception as e:
         return jsonify({"error": f"Ocurrió un error inesperado: {str(e)}"}), 500
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
