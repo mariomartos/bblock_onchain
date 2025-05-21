@@ -1,0 +1,263 @@
+/* General */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #121212;
+  color: #f0f0f0;
+  font-size: 0.95rem;
+}
+
+/* Header principal */
+.main-header {
+  background-color: #1e1e1e;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-logo {
+  height: 20px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+/* Notificación superior */
+#ntf_bar {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  background-color: #1e1e1e;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Indicador de estado */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.status-dot.green { background-color: #4caf50; }
+.status-dot.yellow { background-color: #ffeb3b; }
+.status-dot.red { background-color: #f44336; }
+
+.status-text {
+  color: #ccc;
+}
+
+.container{
+  padding:80px 20px 20px;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content:center;
+}
+
+/* Sección de wallet y fechas */
+.token-section {
+  display:block;
+  width:100%;
+}
+
+.token-section label {
+  font-size: 0.85rem;
+}
+
+.token-section input,
+.token-section select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 0.95rem;
+  width: 100%;
+  min-width:0;
+}
+
+@media (min-width:1400px){
+  .token-section input,
+  .token-section select{
+    max-width:340px;
+  }
+}
+
+.form-buttons{
+  display:flex;
+  justify-content:space-between;
+  margin-top:12px;
+  align-items:center;
+}
+
+.token-section select{
+  font-size: 0.95rem;
+}
+
+/* Botones */
+.button-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.token-section button {
+  padding: 8px 16px;
+  background-color: #2196f3;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 0.95rem;
+}
+
+.token-section button:hover {
+  background-color: #1976d2;
+}
+
+/* Transiciones de paneles */
+.token-section,
+#onc_summaryPanel {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Estados */
+.progress-green {
+  color: green;
+  font-weight: bold;
+}
+
+.progress-red {
+  color: red;
+  font-weight: bold;
+}
+
+.progress-neutral {
+  color: #ffeb3b;
+  font-weight: normal;
+}
+
+/* Panel de resultados */
+.info-panel {
+  background-color: #1c1c1c;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  font-size: 0.95rem;
+}
+
+.info-panel h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Tabla de resultados */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+table th,
+table td {
+  border-bottom: 1px solid #333;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+table th {
+  background-color: #2a2a2a;
+  color: #ccc;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Estilo general inputs/selects */
+select,
+input[type="datetime-local"],
+input[type="text"] {
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+/* Estilo general botón */
+button {
+  padding: 8px 16px;
+  background-color: #2196f3;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #1976d2;
+}
+
+#input-groups-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 630px));
+  justify-content: center;
+  gap: 24px;
+  max-width: calc(3 * 630px + 2 * 24px);
+  margin: 0 auto;
+}
+
+.input-groups-wrapper{
+  width:100%;
+  max-width:100%;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+}
+
+.input-group {
+  background: #1e1e1e;
+  padding: 16px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%; /* ocupa todo el espacio de la celda */
+  max-width: 630px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#onchainForm{
+  width:100%;
+  box-sizing:border-box;
+}
+
+.info-panel,
+.summary-panel {
+  width: 100%;
+  max-width: 1944px;
+  box-sizing: border-box;
+}

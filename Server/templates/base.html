@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B-block</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="header-logo">
+    <h1 class="header-title"></h1>
+  </header>
+  <div id="ntf_bar">
+    <span class="status-dot green" id="ntf_dot"></span>
+    <span class="status-text" id="ntf_text">Esperando...</span>
+  </div>
+  {% block content %}{% endblock %}
+  <script type="module" src="{{ url_for('static', filename='js/sseInit.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/definitions.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/notifications.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/onChain.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+</body>
+</html>

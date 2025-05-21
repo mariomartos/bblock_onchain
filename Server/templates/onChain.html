@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Consulta On-Chain{% endblock %}
+
+{% block content %}
+<main class="container">
+  <div class="input-groups-wrapper">
+    <section class="token-section">
+      <form id="onchainForm">
+        <div id="input-groups-container">
+          <div class="input-group" name="input-group-main">
+            <div style="display:flex;gap:12px;align-items:center;">
+              <label>Token:</label>
+              <input type="text" name="onc_tokenInput" placeholder="0x..."/>
+              <label>Cadena:</label>
+              <select name="onc_chainSelect">
+                <option value="">Selecciona</option>
+                <option value="0xa4b1">Arbitrum</option>
+                <option value="0x2105">Base</option>
+                <option value="0x38">BSC</option>
+                <option value="0x1">Ethereum</option>
+                <option value="0xfa">Fantom</option>
+                <option value="matic">Matic</option>
+                <option value="0xa">Optimism</option>
+                <option value="0x89">Polygon</option>
+                <option value="solana">Solana</option>
+              </select>
+            </div>
+            <div style="display:flex;gap:12px;margin-top:12px;">
+              <label>Desde:</label>
+              <input type="datetime-local" name="onc_fromDate" step="1"
+                    pattern="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}"
+                    title="AAAA-MM-DDThh:mm:ss"
+                    min="2015-01-01T00:00:00"/>
+              <label>Hasta:</label>
+              <input type="datetime-local" name="onc_toDate" step="1"
+                    pattern="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}"
+                    title="AAAA-MM-DDThh:mm:ss"
+                    min="2015-01-01T00:00:00"/>
+            </div>
+            <small style="color:#aaa;margin-top:4px;display:block;">
+              * Las fechas y horas deben estar en formato UTC.
+            </small>
+            <p name="onc_dateMsg"
+              style="display:none;margin:6px 0 0;color:#e74c3c;"></p>
+          </div>
+        </div>
+        <!-- barra de botones -->
+        <div style="display:flex;justify-content:space-between;margin-top:12px;align-items:center;">
+          <button type="button" id="onc_addTokenSearch" disabled
+                  style="background-color:#555;cursor:not-allowed;">+ Añadir panel</button>
+          <button type="submit" id="onc_consultBtn">Consultar</button>
+        </div>
+      </form>
+    </section>
+  </div>
+  <!-- panel resumen -->
+  <section class="summary-panel hidden" id="onc_summaryPanel">
+    <h2>Resumen de la Consulta</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Red</th>
+          <th>Desde</th>
+          <th>Hasta</th>
+          <th>Progreso</th>
+        </tr>
+      </thead>
+      <tbody id="summary_table_body"></tbody>
+    </table>
+    <div style="margin-top:16px;">
+      <button id="onc_newQuery" style="display:none;">Nueva consulta</button>
+    </div>
+  </section>
+  <section class="info-panel hidden" id="onc_resultsPanel"></section>
+  </section>
+</main>
+
+{% endblock %}
